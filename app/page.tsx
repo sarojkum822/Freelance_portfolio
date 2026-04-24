@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Menu, Star, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -15,10 +16,10 @@ import { testimonialsData } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { label: "How It Works", href: "#process" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Team", href: "#team" },
-  { label: "Clients", href: "#testimonials" },
+  { label: "Reviews", href: "#testimonials" },
 ];
 
 const stats = [
@@ -34,6 +35,8 @@ const processSteps = [
   "Build & Iterate",
   "Launch & Support",
 ];
+
+const trustedBy = ["Startup Founders", "Local Businesses", "Growing Teams", "Agencies"];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,7 +60,7 @@ export default function Home() {
       >
         <nav className="mx-auto flex h-20 w-[92%] max-w-6xl items-center justify-between">
           <Link href="/" className="font-heading text-xl font-bold tracking-tight text-[#1f2937]">
-            DevCraft Studio
+            BuildPerHour
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -114,32 +117,44 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-[92%] max-w-6xl">
-        <section className="py-22 md:py-30">
+        <section className="py-16 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-10"
           >
-            <p className="inline-flex rounded-full border border-black/30 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#111827] shadow-sm dark:border-white/30 dark:bg-black/35 dark:text-[#e5e7eb]">
-              Freelance Development Studio
-            </p>
-            <h1 className="max-w-4xl font-heading text-4xl font-extrabold leading-tight md:text-6xl">
-              We build digital products that feel premium and perform at scale.
-            </h1>
-            <p className="max-w-2xl text-lg text-muted-foreground">
-              DevCraft Studio helps teams launch better products with modern engineering, polished UX, and
-              business-minded execution.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#hire-us">
-                <Button size="lg">Start a Project</Button>
-              </a>
-              <a href="#portfolio">
-                <Button size="lg" variant="secondary">
-                  See Our Work
-                </Button>
-              </a>
+            <div className="overflow-hidden rounded-3xl border border-black/15 bg-[#f8f8f6] px-7 py-10 shadow-sm dark:border-white/20 dark:bg-[#f8f8f6] md:px-14 md:py-16">
+              <p className="inline-flex rounded-full border border-black/20 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1f2937]">
+                On-Demand Tech Delivery
+              </p>
+              <h1 className="mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-[#1f2937] md:text-6xl">
+                Build websites and apps with a reliable delivery partner.
+              </h1>
+              <p className="mt-4 max-w-2xl text-base text-[#1f2937] md:text-lg">
+                BuildPerHour helps businesses ship web and mobile products with clear scope, milestone-based execution, and transparent communication.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-4">
+                <a href="#hire-us">
+                  <Button size="lg">Post Your Requirement</Button>
+                </a>
+                <a href="#portfolio">
+                  <Button size="lg" variant="secondary">
+                    Explore Work
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-black/15 bg-white px-6 py-5 dark:border-white/20 dark:bg-white">
+              <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Trusted By</p>
+              <div className="mt-4 grid gap-3 text-center sm:grid-cols-2 md:grid-cols-4">
+                {trustedBy.map((item) => (
+                  <p key={item} className="rounded-lg border border-black/10 px-3 py-2 text-sm font-semibold tracking-wide text-[#1f2937] dark:border-white/15 dark:text-[#1f2937]">
+                    {item}
+                  </p>
+                ))}
+              </div>
             </div>
 
             <div className="grid gap-4 pt-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -182,7 +197,7 @@ export default function Home() {
           </div>
         </SectionReveal>
 
-        <SectionReveal className="py-16 md:py-20">
+        <SectionReveal id="process" className="py-16 md:py-20">
           <SectionTitle title="Process" subtitle="Clear collaboration from first call to post-launch support." />
           <div className="relative mt-10 grid gap-4 md:grid-cols-4">
             <div className="absolute left-0 top-5 hidden h-px w-full bg-gradient-to-r from-[#6c63ff]/40 via-[#00e5a0]/40 to-[#6c63ff]/40 md:block" />
@@ -205,7 +220,15 @@ export default function Home() {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {projectsData.map((project) => (
               <article className="overflow-hidden rounded-2xl border border-black/20 bg-white/90 shadow-sm dark:border-white/20 dark:bg-white/10" key={project.title}>
-                <div className="h-40 bg-gradient-to-br from-[#6c63ff]/60 via-[#1d1f30] to-[#00e5a0]/45" />
+                <a href={project.image} target="_blank" rel="noreferrer" aria-label={`Open full image for ${project.title}`}>
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    width={1200}
+                    height={700}
+                    className="h-40 w-full bg-slate-100 object-contain dark:bg-slate-900"
+                  />
+                </a>
                 <div className="p-6">
                   <h3 className="font-heading text-2xl font-semibold">{project.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">{project.description}</p>
@@ -216,9 +239,26 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
+                  {project.projectUrl && (
+                    <a
+                      href={project.projectUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-4 inline-block text-sm font-medium text-[#6c63ff] transition hover:opacity-80"
+                    >
+                      Visit project ↗
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Link href="/projects">
+              <Button size="lg" variant="secondary">
+                More Projects
+              </Button>
+            </Link>
           </div>
         </SectionReveal>
 
@@ -287,7 +327,7 @@ export default function Home() {
 
       <footer className="border-t border-black/10 py-10 dark:border-white/10">
         <div className="mx-auto flex w-[92%] max-w-6xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <p className="font-heading text-lg font-bold">DevCraft Studio</p>
+          <p className="font-heading text-lg font-bold">BuildPerHour</p>
           <div className="flex gap-4 text-sm text-muted-foreground">
             {navLinks.map((link) => (
               <a key={link.label} href={link.href} className="transition hover:text-foreground">
@@ -295,7 +335,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} DevCraft Studio. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} BuildPerHour. All rights reserved.</p>
         </div>
       </footer>
     </div>
