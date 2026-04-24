@@ -272,18 +272,13 @@ export default function Home() {
 
         <SectionReveal id="hire-us" className="py-16 md:py-24">
           <div className="rounded-3xl border border-[#6c63ff]/35 bg-gradient-to-br from-[#6c63ff]/20 via-transparent to-[#00e5a0]/15 p-8 text-center md:p-14">
-            <h2 className="font-heading text-3xl font-bold md:text-5xl">Ready to build your next product?</h2>
+            <h2 className="font-heading text-3xl font-bold md:text-5xl">Contact Us</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Bring your idea, roadmap, or legacy system challenge. We will turn it into a polished digital product.
+              Email us at <span className="font-semibold text-foreground">sarojkum822@gmail.com</span>
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a href="mailto:hello@devcraftstudio.com">
-                <Button size="lg">Hire Us Directly</Button>
-              </a>
-              <a href="mailto:hello@devcraftstudio.com?subject=Book%20Discovery%20Call">
-                <Button size="lg" variant="secondary">
-                  Book Discovery Call
-                </Button>
+              <a href="mailto:sarojkum822@gmail.com">
+                <Button size="lg">Contact Us</Button>
               </a>
             </div>
           </div>

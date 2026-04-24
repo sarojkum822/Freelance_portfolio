@@ -1,26 +1,38 @@
 export const projectsData = [
   {
-    title: "FlowTrack Logistics",
+    title: "Egg-Bucket",
     description:
-      "A dispatch and fleet visibility platform with real-time route updates and role-based dashboards.",
-    tags: ["Next.js", "Maps", "Realtime"],
+      "Full-stack e-commerce platform with customer and admin workflows, authentication, cart-to-checkout, and order tracking.",
+    tags: ["React.js", "Node.js", "MongoDB", "Express"],
   },
   {
-    title: "PulseCare Patient Portal",
+    title: "Notify",
     description:
-      "A secure healthcare portal for appointment workflows, messaging, and digital records access.",
-    tags: ["React", "FHIR", "Security"],
+      "Backend-focused reminder and notification app with scheduled triggers, Twilio SMS delivery, and documented REST APIs.",
+    tags: ["Node.js", "MongoDB", "Twilio", "REST API"],
   },
   {
-    title: "Lumen HR Suite",
+    title: "Sales Trends Analysis (EDA)",
     description:
-      "A modular HR SaaS platform that centralizes onboarding, feedback cycles, and workforce analytics.",
-    tags: ["SaaS", "TypeScript", "Analytics"],
+      "Data analytics project for retail sales trends using SQL extraction and Python-based exploratory analysis and visualization.",
+    tags: ["Python", "Pandas", "SQL", "Matplotlib"],
   },
   {
-    title: "MetricWave BI Engine",
+    title: "Patient Assist",
     description:
-      "A finance reporting solution combining Power BI and custom APIs for executive-ready insights.",
-    tags: ["Power BI", "API", "Automation"],
+      "Medical records management web app with doctor/patient auth, diagnostics tracking, and PDF/Excel export support.",
+    tags: ["Next.js", "React", "MongoDB", "JWT"],
+  },
+  {
+    title: "Portfolio Mobile App with Resume Builder",
+    description:
+      "React Native app combining portfolio showcase and custom resume builder with editable sections and PDF export.",
+    tags: ["React Native", "TypeScript", "Expo"],
+  },
+  {
+    title: "Personal Portfolio Website",
+    description:
+      "Modern portfolio site built with smooth motion effects, responsive layout, and contact workflow.",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
